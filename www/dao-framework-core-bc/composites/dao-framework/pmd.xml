@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.5" timestamp="2010-10-07T13:26:08.692">
+<suppressedviolation filename="/Users/anders/Projects/oppna-program-dao-framework/trunk/core-bc/composites/types/src/main/java/se/vgregion/core/domain/patterns/valueobject/AbstractValueObject.java" suppressiontype="annotation" msg="Avoid unused private fields such as '_primaryKey'." usermsg=""/>
+</pmd>

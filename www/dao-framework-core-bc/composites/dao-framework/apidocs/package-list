@@ -1,0 +1,4 @@
+se.vgregion.core.domain.patterns.entity
+se.vgregion.core.domain.patterns.repository
+se.vgregion.core.domain.patterns.valueobject
+se.vgregion.core.infrastructure.persistence

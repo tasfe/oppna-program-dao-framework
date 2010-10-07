@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>dao-framework-jpa - Checkstyle report</title>
+    <link>http://oppna-program.googlecode.com/profile-open/dao-framework-system/dao-framework-core-bc/composites/dao-framework-jpa</link>
+    <description>dao-framework-jpa - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2010</copyright>
+    <item>
+      <title>File: 5,
+             Errors: 0,
+             Warnings: 3,
+             Infos: 0
+      </title>
+            <link>http://oppna-program.googlecode.com/profile-open/dao-framework-system/dao-framework-core-bc/composites/dao-framework-jpa/checkstyle.html</link>
+      <description>
+        <p>Click <a href="http://oppna-program.googlecode.com/profile-open/dao-framework-system/dao-framework-core-bc/composites/dao-framework-jpa/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="http://oppna-program.googlecode.com/profile-open/dao-framework-system/dao-framework-core-bc/composites/dao-framework-jpa/checkstyle.html#se.vgregion.persistance.package-info.java">se/vgregion/persistance/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://oppna-program.googlecode.com/profile-open/dao-framework-system/dao-framework-core-bc/composites/dao-framework-jpa/checkstyle.html#se.vgregion.core.infrastructure.persistence.jpa.DefaultJpaRepository.java">se/vgregion/core/infrastructure/persistence/jpa/DefaultJpaRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://oppna-program.googlecode.com/profile-open/dao-framework-system/dao-framework-core-bc/composites/dao-framework-jpa/checkstyle.html#se.vgregion.persistance.MergingPersistenceUnitPostProcessor.java">se/vgregion/persistance/MergingPersistenceUnitPostProcessor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://oppna-program.googlecode.com/profile-open/dao-framework-system/dao-framework-core-bc/composites/dao-framework-jpa/checkstyle.html#se.vgregion.core.infrastructure.persistence.jpa.package-info.java">se/vgregion/core/infrastructure/persistence/jpa/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://oppna-program.googlecode.com/profile-open/dao-framework-system/dao-framework-core-bc/composites/dao-framework-jpa/checkstyle.html#se.vgregion.core.infrastructure.persistence.jpa.JpaRepository.java">se/vgregion/core/infrastructure/persistence/jpa/JpaRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

@@ -1,6 +1,0 @@
-se.vgregion.core.domain.patterns.entity
-se.vgregion.core.domain.patterns.repository
-se.vgregion.core.domain.patterns.valueobject
-se.vgregion.core.infrastructure.persistence
-se.vgregion.core.infrastructure.persistence.jpa
-se.vgregion.persistance

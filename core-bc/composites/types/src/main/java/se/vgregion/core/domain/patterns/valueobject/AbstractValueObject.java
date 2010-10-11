@@ -22,8 +22,6 @@ import org.apache.commons.lang.builder.ToStringStyle;
  */
 public abstract class AbstractValueObject<T extends ValueObject<T>> implements ValueObject<T> {
 
-    private static final long serialVersionUID = 1L;
-
     @SuppressWarnings("unused")
     private final Long _primaryKey = null;
     private transient int _cachedHashCode = 0;

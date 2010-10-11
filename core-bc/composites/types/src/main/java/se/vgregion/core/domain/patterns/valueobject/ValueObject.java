@@ -16,7 +16,7 @@ import java.io.Serializable;
  * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
-public interface ValueObject<T> extends Serializable {
+public interface ValueObject<T> {
 
     /**
      * Value objects compare by the values of their attributes, they don't have an identity.

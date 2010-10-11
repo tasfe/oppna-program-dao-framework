@@ -17,7 +17,6 @@
  *
  */
 /**
- * Package for JPA utilities.
+ * Package for in-memory repository.
  */
-package se.vgregion.persistance;
-
+package se.vgregion.core.domain.patterns.repository.inmemory;

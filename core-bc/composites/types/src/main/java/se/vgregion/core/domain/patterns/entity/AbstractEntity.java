@@ -21,7 +21,6 @@ public abstract class AbstractEntity<T extends Entity<T, ID>, ID> implements Ent
     /**
      * {@inheritDoc}
      */
-    @Override
     public final boolean sameAs(final T other) {
         return other != null && this.getId().equals(other.getId());
     }

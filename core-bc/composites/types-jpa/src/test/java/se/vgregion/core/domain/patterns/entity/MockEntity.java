@@ -26,7 +26,6 @@ public class MockEntity extends AbstractEntity<MockEntity, Long> implements Seri
 
     private String name;
 
-    @Override
     public Long getId() {
         return id;
     }

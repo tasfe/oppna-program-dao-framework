@@ -34,7 +34,6 @@ public abstract class AbstractValueObject<T extends ValueObject<T>> implements V
      *            The other value object.
      * @return True if all non-transient fields are equal.
      */
-    @Override
     public final boolean sameValueAs(final T other) {
         return other != null && EqualsBuilder.reflectionEquals(this, other, EXCLUDED_FIELDS);
     }

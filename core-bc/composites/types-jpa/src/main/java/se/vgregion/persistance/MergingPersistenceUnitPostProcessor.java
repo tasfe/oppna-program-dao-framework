@@ -29,7 +29,6 @@ public class MergingPersistenceUnitPostProcessor implements PersistenceUnitPostP
      *            the chosen PersistenceUnitInfo, as read from <code>persistence.xml</code>. Passed in as
      *            MutablePersistenceUnitInfo.
      */
-    @Override
     public void postProcessPersistenceUnitInfo(MutablePersistenceUnitInfo pui) {
         List<String> classes = puiClasses.get(pui.getPersistenceUnitName());
         if (classes == null) {

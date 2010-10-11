@@ -14,7 +14,7 @@ Generation time : 2010-10-06 14:51:10 CEST
     <artifactId>dao-framework-core-bc</artifactId>
     <version>3.2-SNAPSHOT</version>
   </parent>
-  <groupId>se.vgregion.dddframework</groupId>
+  <groupId>se.vgregion.daoframework</groupId>
   <artifactId>dao-framework</artifactId>
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>

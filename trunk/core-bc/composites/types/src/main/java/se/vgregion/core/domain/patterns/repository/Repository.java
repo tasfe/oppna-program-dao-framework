@@ -64,12 +64,6 @@ public interface Repository<T extends Entity<T, ID>, ID> {
     T find(ID id);
 
     /**
-     * Clear the persistence context, causing all managed entities to
-     * become detached. Changes made to entities that have not been flushed to the storage will not be persisted.
-     */
-    void clear();
-
-    /**
      * Update existing <code>object</code>.
      * 
      * @param object

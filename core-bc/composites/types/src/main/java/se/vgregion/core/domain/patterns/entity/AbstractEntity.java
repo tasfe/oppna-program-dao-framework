@@ -1,3 +1,7 @@
+/*
+ * This source is based on code from the dddsample project (http://dddsample.sourceforge.net/)
+ * under the MIT license
+ */
 package se.vgregion.core.domain.patterns.entity;
 
 import org.apache.commons.lang.builder.EqualsBuilder;

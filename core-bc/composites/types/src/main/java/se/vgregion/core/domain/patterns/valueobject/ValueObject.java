@@ -1,6 +1,8 @@
-package se.vgregion.core.domain.patterns.valueobject;
+/*
+ * This source is based on code from the dddsample project (http://dddsample.sourceforge.net/)
+ * under the MIT license
+ */package se.vgregion.core.domain.patterns.valueobject;
 
-import java.io.Serializable;
 
 /**
  * <strong>From Wikipedia</strong>: A Value Object is an object that contains attributes but has no conceptual

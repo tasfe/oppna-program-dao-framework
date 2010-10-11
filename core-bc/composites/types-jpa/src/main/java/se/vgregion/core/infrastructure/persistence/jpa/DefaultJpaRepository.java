@@ -11,7 +11,7 @@ import se.vgregion.core.domain.patterns.entity.Entity;
  * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
-public abstract class DefaultJpaRepository<T extends Entity<T, Long>> extends JpaRepository<T, Long, Long> {
+public abstract class DefaultJpaRepository<T extends Entity<T, Long>> extends AbstractJpaRepository<T, Long, Long> {
 
     /**
      * {@inheritDoc}

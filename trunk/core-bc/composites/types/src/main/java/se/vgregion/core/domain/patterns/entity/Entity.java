@@ -1,6 +1,5 @@
 package se.vgregion.core.domain.patterns.entity;
 
-import java.io.Serializable;
 
 /**
  * <strong>From wikipedia</strong>: An object that is not defined by its attributes, but rather by a thread of

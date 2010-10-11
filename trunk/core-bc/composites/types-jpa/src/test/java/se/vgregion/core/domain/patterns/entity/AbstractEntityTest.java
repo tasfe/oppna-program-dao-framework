@@ -55,7 +55,6 @@ public class AbstractEntityTest {
         private static final long serialVersionUID = 1L;
         private Long id;
 
-        @Override
         public Long getId() {
             return id;
         }

@@ -1,7 +1,6 @@
 package se.vgregion.core.domain.patterns.repository;
 
-import java.util.List;
-import java.util.Map;
+import java.util.Collection;
 
 import se.vgregion.core.domain.patterns.entity.Entity;
 
@@ -17,38 +16,27 @@ import se.vgregion.core.domain.patterns.entity.Entity;
  */
 public interface Repository<T extends Entity<T, ID>, ID> {
     /**
-     * Store <code>object</code> in the database.
+     * Store <code>object</code> in the storage.
      * 
      * @param object
-     *            the instance to save in the database
-     * @return the object stored in the database
+     *            the instance to save in the storage
+     * @return the object stored in the storage
      */
     T persist(T object);
 
     /**
-     * Taken from the EntityManager documentation: Synchronize the persistence context to the underlying database.
+     * Taken from the EntityManager documentation: Synchronize the persistence context to the underlying storage.
      */
     void flush();
 
     /**
-     * Remove <code>object</code> from the database.
+     * Remove <code>object</code> from the storage.
      * 
      * @param object
-     *            the object to be removed from the database
+     *            the object to be removed from the storage
      */
     void remove(T object);
 
-    /**
-     * Delete by primary key.
-     * 
-     * @param pk
-     *            primary key
-     * 
-     * @deprecated Deprecated as of types-jpa 3.0, replaced by {@link Repository#remove(Object)}. This method will
-     *             be removed in version 3.2.
-     */
-    @Deprecated
-    void deleteByPk(ID pk);
 
     /**
      * Delete by entity ID.
@@ -59,73 +47,11 @@ public interface Repository<T extends Entity<T, ID>, ID> {
     void remove(ID id);
 
     /**
-     * Find all instances of <code>T</code> in the database.
+     * Find all instances of <code>T</code> in the storage.
      * 
      * @return a list <code>T</code> objects
      */
-    List<T> findAll();
-
-    /**
-     * Find instances of <code>T</code> that match the criteria defined by query <code>queryName</code>.
-     * <code>args</code> provide the values for any named parameters in the query identified by
-     * <code>queryName</code>.
-     * 
-     * @param queryName
-     *            the named query to execute
-     * @param args
-     *            the values used by the query
-     * @return a list of <code>T</code> objects
-     */
-    List<T> findByNamedQuery(String queryName, Map<String, ? extends Object> args);
-
-    /**
-     * Find instances of <code>T</code> that match the criteria defined by query <code>queryName</code>.
-     * <code>args</code> provide values for positional arguments in the query identified by <code>queryName</code>.
-     * 
-     * @param queryName
-     *            the named query to execute
-     * @param args
-     *            the positional values used in the query
-     * @return a list of <code>T</code> objects
-     */
-    List<T> findByNamedQuery(String queryName, Object[] args);
-
-    /**
-     * Find a single instance of <code>T</code> using the query named <code>queryName</code> and the arguments
-     * identified by <code>args</code>.
-     * 
-     * @param queryName
-     *            the name of the query to use
-     * @param args
-     *            the arguments for the named query
-     * @return T or null if no objects match the criteria if more than one instance is returned.
-     */
-    T findInstanceByNamedQuery(String queryName, Object[] args);
-
-    /**
-     * Find a single instance of <code>T</code> using the query named <code>queryName</code> and the arguments
-     * identified by <code>args</code>.
-     * 
-     * @param queryName
-     *            the name of the query to use
-     * @param args
-     *            a Map holding the named parameters of the query
-     * @return T or null if no objects match the criteria if more than one instance is returned.
-     */
-    T findInstanceByNamedQuery(String queryName, Map<String, ? extends Object> args);
-
-    /**
-     * Finds the instance of <code>T</code> identified by <code>pk</code>.
-     * 
-     * @param pk
-     *            The primary key
-     * @return an object of <code>T</code>
-     * 
-     * @deprecated Deprecated as of types-jpa 3.0, replaced by {@link Repository#find(Object)}. This method will be
-     *             removed in version 3.2.
-     */
-    @Deprecated
-    T findByPk(ID pk);
+    Collection<T> findAll();
 
     /**
      * Finds the instance of <code>T</code> identified by it's <code>ID</code>.
@@ -138,8 +64,8 @@ public interface Repository<T extends Entity<T, ID>, ID> {
     T find(ID id);
 
     /**
-     * Taken from the EntityManager documentation: Clear the persistence context, causing all managed entities to
-     * become detached. Changes made to entities that have not been flushed to the database will not be persisted.
+     * Clear the persistence context, causing all managed entities to
+     * become detached. Changes made to entities that have not been flushed to the storage will not be persisted.
      */
     void clear();
 
@@ -153,7 +79,7 @@ public interface Repository<T extends Entity<T, ID>, ID> {
     T merge(T object);
 
     /**
-     * Taken from the EntityManager documentation: Refresh the state of the instance from the database, overwriting
+     * Refresh the state of the instance from the storage, overwriting
      * changes made to the entity, if any.
      * 
      * @param object
@@ -162,7 +88,7 @@ public interface Repository<T extends Entity<T, ID>, ID> {
     void refresh(T object);
 
     /**
-     * Check if the entity is available in the EntityManager.
+     * Check if the entity is available in the storage.
      * 
      * @param entity
      *            the entity object

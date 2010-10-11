@@ -19,7 +19,7 @@ import java.io.Serializable;
  * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
-public interface Entity<T, ID> extends Serializable {
+public interface Entity<T, ID> {
     /**
      * Entities have an identity.
      * 

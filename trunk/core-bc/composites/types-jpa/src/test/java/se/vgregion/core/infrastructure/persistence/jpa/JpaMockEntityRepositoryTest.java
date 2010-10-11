@@ -1,7 +1,11 @@
 package se.vgregion.core.infrastructure.persistence.jpa;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.junit.After;
@@ -51,7 +55,7 @@ public class JpaMockEntityRepositoryTest extends AbstractTransactionalJUnit4Spri
     @Rollback(false)
     @Transactional(readOnly = true)
     public void findAll() {
-        List<MockEntity> entityList = testRepository.findAll();
+        Collection<MockEntity> entityList = testRepository.findAll();
 
         assertEquals(2, entityList.size());
     }
@@ -74,9 +78,9 @@ public class JpaMockEntityRepositoryTest extends AbstractTransactionalJUnit4Spri
     @Rollback(false)
     @Transactional
     public void removeEntity() {
-        List<MockEntity> entityList = testRepository.findAll();
+        Collection<MockEntity> entityList = testRepository.findAll();
 
-        testRepository.remove(entityList.get(0));
+        testRepository.remove(entityList.iterator().next());
 
         testRepository.flush();
 
@@ -93,10 +97,10 @@ public class JpaMockEntityRepositoryTest extends AbstractTransactionalJUnit4Spri
 
         testRepository.flush();
 
-        List<MockEntity> entityList = testRepository.findAll();
+        Collection<MockEntity> entityList = testRepository.findAll();
 
         assertEquals(1, entityList.size());
-        assertEquals(new Long(1), entityList.get(0).getId());
+        assertEquals(new Long(1), entityList.iterator().next().getId());
     }
 
     @Test
@@ -122,7 +126,7 @@ public class JpaMockEntityRepositoryTest extends AbstractTransactionalJUnit4Spri
         testRepository.persist(entity);
         testRepository.flush();
 
-        List<MockEntity> entityList = testRepository.findAll();
+        Collection<MockEntity> entityList = testRepository.findAll();
 
         assertEquals(3, entityList.size());
         for (MockEntity j : entityList) {
@@ -157,7 +161,7 @@ public class JpaMockEntityRepositoryTest extends AbstractTransactionalJUnit4Spri
 
         testRepository.store(entity);
 
-        List<MockEntity> entityList = testRepository.findAll();
+        Collection<MockEntity> entityList = testRepository.findAll();
         assertEquals(2, entityList.size());
 
         MockEntity newentity = new MockEntity();

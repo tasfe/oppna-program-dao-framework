@@ -16,7 +16,7 @@
  *   Boston, MA 02111-1307  USA
  *
  */
-package se.vgregion.core.infrastructure.persistence.jpa;
+package se.vgregion.core.domain.patterns.repository.jpa;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -34,8 +34,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.transaction.annotation.Transactional;
 
-import se.vgregion.core.domain.patterns.entity.MockEntity;
-import se.vgregion.core.domain.patterns.entity.MockEntityRepository;
+
 
 /**
  * This action do that and that, if it has something special it is.
@@ -44,7 +43,7 @@ import se.vgregion.core.domain.patterns.entity.MockEntityRepository;
  * @author Anders Asplund - Callista Enterprise
  */
 @ContextConfiguration("classpath:JpaMockEntityRepositoryTest-context.xml")
-public class JpaMockEntityRepositoryTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Autowired
     private MockEntityRepository testRepository;

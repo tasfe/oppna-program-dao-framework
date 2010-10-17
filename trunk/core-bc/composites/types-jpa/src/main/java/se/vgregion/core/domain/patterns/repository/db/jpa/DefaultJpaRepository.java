@@ -16,9 +16,9 @@
  *   Boston, MA 02111-1307  USA
  *
  */
-package se.vgregion.core.infrastructure.persistence.jpa;
+package se.vgregion.core.domain.patterns.repository.db.jpa;
 
-import se.vgregion.core.domain.patterns.entity.Entity;
+import se.vgregion.dao.domain.patterns.entity.Entity;
 
 /**
  * A convenient implementation of JpaRepository where Entity ID and database primary key(PK) are equal and of type

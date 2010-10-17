@@ -16,7 +16,7 @@
  *   Boston, MA 02111-1307  USA
  *
  */
-package se.vgregion.core.infrastructure.persistence.jpa;
+package se.vgregion.core.domain.patterns.repository.db.jpa;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,8 +25,8 @@ import java.util.Map;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import se.vgregion.core.domain.patterns.entity.Entity;
-import se.vgregion.core.infrastructure.persistence.DatabaseRepository;
+import se.vgregion.dao.domain.patterns.entity.Entity;
+import se.vgregion.dao.domain.patterns.repository.db.DatabaseRepository;
 
 /**
  * An extended repository interface specific for JPA

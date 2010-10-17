@@ -16,7 +16,7 @@
  *   Boston, MA 02111-1307  USA
  *
  */
-package se.vgregion.core.domain.patterns.repository.jpa;
+package se.vgregion.dao.domain.patterns.repository.jpa;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

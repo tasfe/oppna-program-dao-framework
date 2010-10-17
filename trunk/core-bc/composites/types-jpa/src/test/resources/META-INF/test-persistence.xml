@@ -2,7 +2,7 @@
 
   <persistence-unit name="default">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>se.vgregion.core.domain.patterns.repository.jpa.MockEntity</class>
+    <class>se.vgregion.dao.domain.patterns.repository.jpa.MockEntity</class>
   </persistence-unit>
 
 </persistence>

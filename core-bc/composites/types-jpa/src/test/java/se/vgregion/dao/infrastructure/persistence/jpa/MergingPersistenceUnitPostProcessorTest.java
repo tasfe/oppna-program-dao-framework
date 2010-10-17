@@ -1,4 +1,4 @@
-package se.vgregion.dao.infrastructure.persistence;
+package se.vgregion.dao.infrastructure.persistence.jpa;
 
 import static org.junit.Assert.*;
 
@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.orm.jpa.persistenceunit.MutablePersistenceUnitInfo;
 import org.springframework.test.util.ReflectionTestUtils;
+
+import se.vgregion.dao.infrastructure.persistence.jpa.MergingPersistenceUnitPostProcessor;
 
 public class MergingPersistenceUnitPostProcessorTest {
     MergingPersistenceUnitPostProcessor mergingPersistenceUnitPostProcessor = null;

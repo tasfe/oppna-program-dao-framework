@@ -16,7 +16,7 @@
  *   Boston, MA 02111-1307  USA
  *
  */
-package se.vgregion.persistance;
+package se.vgregion.dao.infrastructure.persistence.jpa;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -19,5 +19,5 @@
 /**
  * Package for JPA utilities.
  */
-package se.vgregion.persistance;
+package se.vgregion.dao.infrastructure.persistence.jpa;
 

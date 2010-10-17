@@ -16,7 +16,7 @@
  *   Boston, MA 02111-1307  USA
  *
  */
-package se.vgregion.core.domain.patterns.repository.db.jpa;
+package se.vgregion.dao.domain.patterns.repository.db.jpa;
 
 import se.vgregion.dao.domain.patterns.entity.Entity;
 

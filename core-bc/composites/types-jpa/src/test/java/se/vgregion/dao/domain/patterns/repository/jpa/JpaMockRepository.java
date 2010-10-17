@@ -16,9 +16,9 @@
  *   Boston, MA 02111-1307  USA
  *
  */
-package se.vgregion.core.domain.patterns.repository.jpa;
+package se.vgregion.dao.domain.patterns.repository.jpa;
 
-import se.vgregion.core.domain.patterns.repository.db.jpa.DefaultJpaRepository;
+import se.vgregion.dao.domain.patterns.repository.db.jpa.DefaultJpaRepository;
 
 /**
  * This action do that and that, if it has something special it is.

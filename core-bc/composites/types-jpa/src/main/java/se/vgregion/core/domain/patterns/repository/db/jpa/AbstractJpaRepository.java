@@ -16,7 +16,7 @@
  *   Boston, MA 02111-1307  USA
  *
  */
-package se.vgregion.core.infrastructure.persistence.jpa;
+package se.vgregion.core.domain.patterns.repository.db.jpa;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -33,8 +33,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import se.vgregion.core.domain.patterns.entity.Entity;
-import se.vgregion.core.infrastructure.persistence.DatabaseRepository;
+import se.vgregion.dao.domain.patterns.entity.Entity;
+import se.vgregion.dao.domain.patterns.repository.db.DatabaseRepository;
 
 /**
  * An abstract default implementation of a {@link DatabaseRepository}. This is an JPA implementation used with any

@@ -19,4 +19,4 @@
 /**
  * Package for jpa repositories.
  */
-package se.vgregion.core.infrastructure.persistence.jpa;
+package se.vgregion.core.domain.patterns.repository.db.jpa;

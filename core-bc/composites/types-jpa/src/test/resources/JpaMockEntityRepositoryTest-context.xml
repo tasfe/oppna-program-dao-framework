@@ -13,5 +13,6 @@
   <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
     p:location="classpath:test-datasource.properties" />
 
-  <bean id="jpaTestRepository" class="se.vgregion.core.infrastructure.persistence.jpa.JpaMockEntityRepository" />
+  <bean id="jpaTestRepository" class="se.vgregion.core.domain.patterns.repository.jpa.JpaMockRepository" />
+
 </beans>

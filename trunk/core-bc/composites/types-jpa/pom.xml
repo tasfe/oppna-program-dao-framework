@@ -9,6 +9,7 @@
     <artifactId>dao-framework-core-bc</artifactId>
     <version>3.2-SNAPSHOT</version>
   </parent>
+  
   <groupId>se.vgregion.daoframework</groupId>
   <artifactId>dao-framework-jpa</artifactId>
   <packaging>jar</packaging>

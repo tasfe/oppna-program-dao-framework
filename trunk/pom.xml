@@ -21,6 +21,7 @@
     <module>core-bc</module>
   </modules>
 
+<!-- Used to deploy maven site, but not working properly for the moment.
   <build>
     <extensions>
       <extension>
@@ -44,19 +45,20 @@
         <version>1.0-beta-6</version>
       </extension>
     </extensions>
-  </build>
+  </build -->
 
   <scm>
     <developerConnection>scm:svn:https://oppna-program-dao-framework.googlecode.com/svn/trunk</developerConnection>
     <url>http://jpa-framework.googlecode.com/svn/trunk</url>
   </scm>
 
+<!-- Used to deploy maven site, but not working properly for the moment.
   <distributionManagement>
     <site>
       <id>oppna-program-dao-framework</id>
       <url>scm:svn:https://oppna-program-dao-framework.googlecode.com/svn/www</url>
     </site>
-  </distributionManagement>
+  </distributionManagement -->
   
   <properties>
       <compileSource>1.5</compileSource>

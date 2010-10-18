@@ -16,7 +16,6 @@
     <property name="persistenceUnitManager" ref="pum" />
     <property name="dataSource" ref="dataSource" />
     <property name="jpaVendorAdapter" ref="jpaVendor" />
-
     <property name="jpaProperties">
       <props>
         <prop key="hibernate.show_sql">${hibernate.database.showsql}</prop>

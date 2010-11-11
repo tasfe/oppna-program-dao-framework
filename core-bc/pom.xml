@@ -22,5 +22,6 @@ Generation time : 2010-10-06 14:51:10 CEST
   <modules>
     <module>composites/types</module>
     <module>composites/types-jpa</module>
+    <module>composites/types-jpa-spring</module>
   </modules>
 </project>

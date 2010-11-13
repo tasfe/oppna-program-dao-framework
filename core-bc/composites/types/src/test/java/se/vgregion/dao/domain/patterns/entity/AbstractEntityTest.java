@@ -23,11 +23,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import se.vgregion.dao.domain.patterns.entity.AbstractEntity;
-
 /**
- * This action do that and that, if it has something special it is.
- * 
  * @author <a href="mailto:david.rosell@redpill-linpro.com">David Rosell</a>
  */
 public class AbstractEntityTest {

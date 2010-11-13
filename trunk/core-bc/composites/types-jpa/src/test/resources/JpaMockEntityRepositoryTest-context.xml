@@ -15,4 +15,6 @@
 
   <bean id="jpaTestRepository" class="se.vgregion.dao.domain.patterns.repository.jpa.JpaMockRepository" />
 
+  <bean class="se.vgregion.dao.domain.patterns.repository.jpa.JpaImmutableMockRepository" />
+
 </beans>

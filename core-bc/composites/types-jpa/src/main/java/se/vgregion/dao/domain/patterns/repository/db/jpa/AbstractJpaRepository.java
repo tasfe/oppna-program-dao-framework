@@ -1,4 +1,5 @@
 /**
+
  * Copyright 2010 Västra Götalandsregionen
  *
  *   This library is free software; you can redistribute it and/or modify
@@ -94,16 +95,17 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
      *            Entity to check for
      * @return true if found
      */
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public boolean contains(T entity) {
         return entityManager.contains(entity);
     }
 
     /**
      * {@inheritDoc}
+     * 
      */
     @SuppressWarnings("unchecked")
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<T> findAll() {
         Query query = entityManager.createQuery("select o from " + type.getSimpleName() + " o");
         return query.getResultList();
@@ -113,7 +115,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
      * {@inheritDoc}
      */
     @SuppressWarnings("unchecked")
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<T> findByNamedQuery(String queryName, Map<String, ? extends Object> args) {
         Query namedQuery = entityManager.createNamedQuery(queryName);
         for (Map.Entry<String, ? extends Object> parameter : args.entrySet()) {
@@ -126,7 +128,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
      * {@inheritDoc}
      */
     @SuppressWarnings("unchecked")
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<T> findByNamedQuery(String queryName, Object[] args) {
         Query namedQuery = entityManager.createNamedQuery(queryName);
         if (args != null) {
@@ -140,7 +142,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      */
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public T findInstanceByNamedQuery(String queryName, Object[] args) {
         Query namedQuery = entityManager.createNamedQuery(queryName);
         if (args != null) {
@@ -164,7 +166,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      */
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public T findInstanceByNamedQuery(String queryName, Map<String, ? extends Object> args) {
         Query namedQuery = entityManager.createNamedQuery(queryName);
         if (args != null) {
@@ -186,7 +188,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      */
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public T find(ID id) {
         return entityManager.find(type, id);
     }
@@ -194,23 +196,27 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      */
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public T findByPrimaryKey(PK pk) {
         return entityManager.find(type, pk);
     }
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
      */
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.MANDATORY)
     public void flush() {
         entityManager.flush();
     }
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
      */
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.MANDATORY)
     public T persist(T entity) {
         entityManager.persist(entity);
         return entity;
@@ -218,24 +224,30 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
      */
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public void clear() {
         entityManager.clear();
     }
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
      */
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.MANDATORY)
     public void remove(T entity) {
         entityManager.remove(entity);
     }
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
      */
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.MANDATORY)
     public void remove(ID id) {
         T entity = find(id);
         entityManager.remove(entity);
@@ -243,8 +255,10 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
      */
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.MANDATORY)
     public void removeByPrimaryKey(PK pk) {
         T entity = findByPrimaryKey(pk);
         entityManager.remove(entity);
@@ -252,16 +266,20 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
      */
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.MANDATORY)
     public T merge(T entity) {
         return entityManager.merge(entity);
     }
 
     /**
      * {@inheritDoc}
+     * 
+     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
      */
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.MANDATORY)
     public T store(T entity) {
         if (entity.getId() == null || entityManager.find(type, entity.getId()) == null) {
             persist(entity);
@@ -274,7 +292,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      */
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public void refresh(T entity) {
         entityManager.refresh(entity);
     }

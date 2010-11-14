@@ -46,6 +46,13 @@ public class MockEntity extends AbstractEntity<MockEntity, Long> implements Seri
 
     private String name;
 
+    public MockEntity() {
+    }
+
+    public MockEntity(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

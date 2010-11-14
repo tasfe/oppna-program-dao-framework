@@ -204,7 +204,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      * 
-     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
+     * @throws {@link IllegalTransactionStateException} if the method is invoked without an existing transaction.
      */
     @Transactional(propagation = Propagation.MANDATORY)
     public void flush() {
@@ -214,7 +214,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      * 
-     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
+     * @throws {@link IllegalTransactionStateException} if the method is invoked without an existing transaction.
      */
     @Transactional(propagation = Propagation.MANDATORY)
     public T persist(T entity) {
@@ -225,7 +225,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      * 
-     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
+     * @throws {@link IllegalTransactionStateException} if the method is invoked without an existing transaction.
      */
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public void clear() {
@@ -235,7 +235,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      * 
-     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
+     * @throws {@link IllegalTransactionStateException} if the method is invoked without an existing transaction.
      */
     @Transactional(propagation = Propagation.MANDATORY)
     public void remove(T entity) {
@@ -245,7 +245,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      * 
-     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
+     * @throws {@link IllegalTransactionStateException} if the method is invoked without an existing transaction.
      */
     @Transactional(propagation = Propagation.MANDATORY)
     public void remove(ID id) {
@@ -256,7 +256,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      * 
-     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
+     * @throws {@link IllegalTransactionStateException} if the method is invoked without an existing transaction.
      */
     @Transactional(propagation = Propagation.MANDATORY)
     public void removeByPrimaryKey(PK pk) {
@@ -267,7 +267,7 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      * 
-     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
+     * @throws {@link IllegalTransactionStateException} if the method is invoked without an existing transaction.
      */
     @Transactional(propagation = Propagation.MANDATORY)
     public T merge(T entity) {
@@ -277,12 +277,12 @@ public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends 
     /**
      * {@inheritDoc}
      * 
-     * @throws {@link TransactionRequiredException} if the method is invoked without an existing transaction.
+     * @throws {@link IllegalTransactionStateException} if the method is invoked without an existing transaction.
      */
     @Transactional(propagation = Propagation.MANDATORY)
     public T store(T entity) {
         if (entity.getId() == null || entityManager.find(type, entity.getId()) == null) {
-            persist(entity);
+            entityManager.persist(entity);
             return entity;
         } else {
             return entityManager.merge(entity);

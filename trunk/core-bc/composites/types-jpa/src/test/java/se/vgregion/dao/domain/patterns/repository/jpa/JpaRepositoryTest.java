@@ -18,10 +18,7 @@
  */
 package se.vgregion.dao.domain.patterns.repository.jpa;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.Collection;
 
@@ -32,9 +29,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-import org.springframework.transaction.annotation.Transactional;
-
-
 
 /**
  * This action do that and that, if it has something special it is.
@@ -59,8 +53,6 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
     }
 
     @Test
-    @Rollback(false)
-    @Transactional(readOnly = true)
     public void find() {
         MockEntity entity = testRepository.find(1L);
 
@@ -68,8 +60,6 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
     }
 
     @Test
-    @Rollback(false)
-    @Transactional(readOnly = true)
     public void findAll() {
         Collection<MockEntity> entityList = testRepository.findAll();
 
@@ -78,7 +68,6 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
 
     @Test
     @Rollback(false)
-    @Transactional
     public void merge() {
         MockEntity entity = testRepository.find(1L);
         entity.setName("newName");
@@ -92,7 +81,6 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
 
     @Test
     @Rollback(false)
-    @Transactional
     public void removeEntity() {
         Collection<MockEntity> entityList = testRepository.findAll();
 
@@ -107,7 +95,6 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
 
     @Test
     @Rollback(false)
-    @Transactional
     public void remove() {
         testRepository.remove(2L);
 
@@ -120,8 +107,6 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
     }
 
     @Test
-    @Rollback(false)
-    @Transactional(readOnly = true)
     public void refresh() {
         MockEntity entity = testRepository.find(1L);
 
@@ -134,7 +119,6 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
 
     @Test
     @Rollback(false)
-    @Transactional
     public void persist() {
         MockEntity entity = new MockEntity();
         entity.setName("newentity");
@@ -151,8 +135,6 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
     }
 
     @Test
-    @Rollback(false)
-    @Transactional(readOnly = true)
     public void clear() {
         MockEntity entity = testRepository.find(1L);
 
@@ -168,8 +150,6 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
     }
 
     @Test
-    @Rollback(false)
-    @Transactional
     public void store() {
         MockEntity entity = testRepository.find(1L);
 

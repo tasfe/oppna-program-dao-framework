@@ -18,16 +18,18 @@
  */
 package se.vgregion.dao.domain.patterns.repository.jpa;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.Collection;
 
 import javax.annotation.Resource;
 import javax.persistence.PersistenceException;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,13 +43,17 @@ public class JpaRepositoryImmutableTest extends AbstractTransactionalJUnit4Sprin
     private ImmutableMockEntityRepository testRepository;
 
     @Before
-    @Transactional
     public void setUp() throws Exception {
-        testRepository.store(new ImmutableMockEntity("foo"));
+        executeSqlScript("classpath:dbsetup/test-data.sql", false);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        executeSqlScript("classpath:dbsetup/drop-test-data.sql", false);
     }
 
     @Test
-    @Transactional
+    @Rollback(false)
     public void store() {
         ImmutableMockEntity entity = testRepository.findAll().iterator().next();
 
@@ -56,14 +62,14 @@ public class JpaRepositoryImmutableTest extends AbstractTransactionalJUnit4Sprin
         testRepository.store(updatedEntity);
 
         Collection<ImmutableMockEntity> entityList = testRepository.findAll();
-        assertEquals(1, entityList.size());
-        
+        assertEquals(2, entityList.size());
+
         ImmutableMockEntity actual = testRepository.findAll().iterator().next();
         Assert.assertEquals("bar", actual.getName());
     }
 
     @Test
-    @Transactional
+    @Rollback(false)
     public void merge() {
         ImmutableMockEntity entity = testRepository.findAll().iterator().next();
 
@@ -72,15 +78,14 @@ public class JpaRepositoryImmutableTest extends AbstractTransactionalJUnit4Sprin
         testRepository.merge(updatedEntity);
 
         Collection<ImmutableMockEntity> entityList = testRepository.findAll();
-        assertEquals(1, entityList.size());
-        
+        assertEquals(2, entityList.size());
+
         ImmutableMockEntity actual = testRepository.findAll().iterator().next();
         Assert.assertEquals("bar", actual.getName());
     }
 
-    
-    @Test(expected=PersistenceException.class)
-    @Transactional
+    @Test(expected = PersistenceException.class)
+    @Transactional(rollbackFor = PersistenceException.class)
     public void persist() {
         ImmutableMockEntity entity = testRepository.findAll().iterator().next();
 

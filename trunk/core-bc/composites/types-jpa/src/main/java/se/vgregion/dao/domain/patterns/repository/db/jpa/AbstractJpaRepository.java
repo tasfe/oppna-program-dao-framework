@@ -29,8 +29,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,7 +51,6 @@ import se.vgregion.dao.domain.patterns.repository.db.DatabaseRepository;
  */
 public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends Serializable, PK extends Serializable>
         implements JpaRepository<T, ID, PK> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractJpaRepository.class);
 
     /**
      * Entity manager ref.

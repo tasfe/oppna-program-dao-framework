@@ -61,9 +61,9 @@ public abstract class AbstractJpaRepository<T extends Entity<ID>, ID extends Ser
     /**
      * Entity class type.
      */
-    protected Class<T> type;
+    protected Class<? extends T> type;
 
-    public void setType(Class<T> type) {
+    public void setType(Class<? extends T> type) {
         this.type = type;
     }
 
@@ -81,7 +81,7 @@ public abstract class AbstractJpaRepository<T extends Entity<ID>, ID extends Ser
      * @param type
      *            Entity class type
      */
-    public AbstractJpaRepository(Class<T> type) {
+    public AbstractJpaRepository(Class<? extends T> type) {
         this.type = type;
     }
 

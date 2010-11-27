@@ -29,7 +29,7 @@ import se.vgregion.dao.domain.patterns.repository.Repository;
 /**
  * Abstract in-memory repository. Stores entities in a {@link ConcurrentHashMap}
  */
-public abstract class AbstractInMemoryRepository<T extends Entity<T, ID>, ID extends Serializable> implements
+public abstract class AbstractInMemoryRepository<T extends Entity<ID>, ID extends Serializable> implements
         Repository<T, ID> {
 
     private Map<ID, T> entities = new ConcurrentHashMap<ID, T>();

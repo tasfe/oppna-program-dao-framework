@@ -10,7 +10,7 @@ package se.vgregion.dao.domain.patterns.entity;
  * For more information about the builder pattern can be found <a href="http://en.wikipedia.org/wiki/Builder_pattern">here</a>.
  * 
  */
-public interface EntityBuilder<B extends EntityBuilder<?, ?>, E extends Entity<?, ?>> {
+public interface EntityBuilder<B extends EntityBuilder<?, ?>, E extends Entity<?>> {
     
     E build();
 }

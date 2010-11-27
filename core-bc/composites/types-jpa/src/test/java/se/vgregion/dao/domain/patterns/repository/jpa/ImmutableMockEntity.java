@@ -31,7 +31,7 @@ import se.vgregion.dao.domain.patterns.entity.EntityBuilder;
 
 @Entity
 @Table(name = "vgr_test_entity")
-public class ImmutableMockEntity extends AbstractEntity<ImmutableMockEntity, Long> implements Serializable {
+public class ImmutableMockEntity extends AbstractEntity<Long> implements Serializable {
 
     public static class MockBuilder implements EntityBuilder<MockBuilder, ImmutableMockEntity> {
  

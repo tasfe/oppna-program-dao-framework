@@ -22,7 +22,7 @@ package se.vgregion.dao.domain.patterns.entity;
  * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
-public interface Entity<T, ID> {
+public interface Entity<ID> {
     /**
      * Entities have an identity.
      * 
@@ -37,6 +37,6 @@ public interface Entity<T, ID> {
      *            The other entity.
      * @return true if the identities are the same, regardless of other attributes.
      */
-    boolean sameAs(T other);
+    boolean sameAs(Entity<ID> other);
 
 }

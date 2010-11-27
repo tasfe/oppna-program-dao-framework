@@ -32,7 +32,7 @@ import se.vgregion.dao.domain.patterns.entity.Entity;
  * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
-public interface Repository<T extends Entity<T, ID>, ID> {
+public interface Repository<T extends Entity<ID>, ID> {
     /**
      * Store <code>object</code> in the storage.
      * 

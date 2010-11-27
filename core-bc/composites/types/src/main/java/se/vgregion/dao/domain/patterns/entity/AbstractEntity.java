@@ -18,15 +18,17 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  * 
  */
-public abstract class AbstractEntity<T extends Entity<T, ID>, ID> implements Entity<T, ID> {
+public abstract class AbstractEntity<ID> implements Entity<ID> {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * {@inheritDoc}
      */
-    public final boolean sameAs(final T other) {
-        return other != null && this.getId().equals(other.getId());
+    public final boolean sameAs(final Entity<ID> other) {
+        return other != null 
+            && (other.getClass().isAssignableFrom(this.getClass()) || this.getClass().isAssignableFrom(other.getClass())) 
+            && this.getId().equals(other.getId());
     }
 
     /**
@@ -56,7 +58,7 @@ public abstract class AbstractEntity<T extends Entity<T, ID>, ID> implements Ent
         }
 
         @SuppressWarnings("unchecked")
-        T otherType = (T) other;
+        Entity otherType = (Entity) other;
 
         if (getId() == null || otherType.getId() == null) {
             return false;

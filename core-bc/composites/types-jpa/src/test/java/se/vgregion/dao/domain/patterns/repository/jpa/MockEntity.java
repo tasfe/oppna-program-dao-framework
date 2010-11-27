@@ -36,7 +36,7 @@ import se.vgregion.dao.domain.patterns.entity.AbstractEntity;
 
 @Entity
 @Table(name = "vgr_test_entity")
-public class MockEntity extends AbstractEntity<MockEntity, Long> implements Serializable {
+public class MockEntity extends AbstractEntity<Long> implements Serializable {
 
     private static final long serialVersionUID = 5067859147916759914L;
 

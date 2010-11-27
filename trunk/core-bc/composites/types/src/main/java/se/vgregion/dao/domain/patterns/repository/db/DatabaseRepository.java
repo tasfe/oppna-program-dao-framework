@@ -36,7 +36,7 @@ import se.vgregion.dao.domain.patterns.repository.Repository;
  * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
-public interface DatabaseRepository<T extends Entity<T, ID>, ID extends Serializable, PK extends Serializable>
+public interface DatabaseRepository<T extends Entity<ID>, ID extends Serializable, PK extends Serializable>
         extends Repository<T, ID> {
 
     /**

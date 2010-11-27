@@ -20,7 +20,7 @@ package se.vgregion.dao.domain.patterns.repository.inmemory;
 
 import se.vgregion.dao.domain.patterns.entity.AbstractEntity;
 
-public class MockEntity extends AbstractEntity<MockEntity, Integer> {
+public class MockEntity extends AbstractEntity<Integer> {
 
     private Integer id;
     

@@ -49,7 +49,7 @@ import se.vgregion.dao.domain.patterns.repository.db.DatabaseRepository;
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  * 
  */
-public abstract class AbstractJpaRepository<T extends Entity<T, ID>, ID extends Serializable, PK extends Serializable>
+public abstract class AbstractJpaRepository<T extends Entity<ID>, ID extends Serializable, PK extends Serializable>
         implements JpaRepository<T, ID, PK> {
 
     /**

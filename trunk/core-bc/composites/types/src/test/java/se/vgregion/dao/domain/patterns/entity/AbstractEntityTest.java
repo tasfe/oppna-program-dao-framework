@@ -20,6 +20,8 @@ package se.vgregion.dao.domain.patterns.entity;
 
 import static org.junit.Assert.*;
 
+import java.util.UUID;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,11 +29,11 @@ import org.junit.Test;
  * @author <a href="mailto:david.rosell@redpill-linpro.com">David Rosell</a>
  */
 public class AbstractEntityTest {
-    AbstractEntity<TestEntity, Long> entity1;
-    AbstractEntity<TestEntity, Long> entity2;
-    AbstractEntity<TestEntity, Long> entitySame1;
-    AbstractEntity<TestEntity, Long> entityNull1;
-    AbstractEntity<TestEntity, Long> entityNull2;
+    AbstractEntity<Long> entity1;
+    AbstractEntity<Long> entity2;
+    AbstractEntity<Long> entitySame1;
+    AbstractEntity<Long> entityNull1;
+    AbstractEntity<Long> entityNull2;
 
     @Before
     public void setUp() {
@@ -62,11 +64,41 @@ public class AbstractEntityTest {
     }
 
     @Test
+    public void testSameAs() throws Exception {
+        UUID id = UUID.randomUUID();
+        Car car = new Car(id);
+        Car car2 = new Car(id);
+        Car car3 = new Car(UUID.randomUUID());
+
+        assertTrue(car.sameAs(car));
+        assertTrue(car.sameAs(car2));
+        assertTrue(car2.sameAs(car));
+        assertFalse(car3.sameAs(car));
+        assertFalse(car.sameAs(car3));
+    }
+    
+    @Test
+    public void testSameAsWithInheritance() throws Exception {
+        UUID id = UUID.randomUUID();
+        Car car = new Car(id);
+        RaceCar raceCar = new RaceCar(id);
+        Person person = new Person(id);
+        
+        assertTrue(car.sameAs(car));
+        assertTrue(raceCar.sameAs(car));
+        assertTrue(car.sameAs(raceCar));
+        assertFalse(car.sameAs(person));
+        assertFalse(person.sameAs(car));
+        assertFalse(car.sameAs(null));
+    }
+
+    
+    @Test
     public void testToString() throws Exception {
         assertTrue(entity1.toString().contains("id=1"));
     }
 
-    private class TestEntity extends AbstractEntity<TestEntity, Long> {
+    private class TestEntity extends AbstractEntity<Long> {
 
         private static final long serialVersionUID = 1L;
         private Long id;

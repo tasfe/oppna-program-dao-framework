@@ -31,6 +31,13 @@ import se.vgregion.dao.domain.patterns.entity.Entity;
  */
 public abstract class DefaultJpaRepository<T extends Entity<Long>> extends AbstractJpaRepository<T, Long, Long> {
 
+    public DefaultJpaRepository() {
+    }
+
+    public DefaultJpaRepository(Class<? extends T> type) {
+        super(type);
+    }
+
     /**
      * {@inheritDoc}
      */

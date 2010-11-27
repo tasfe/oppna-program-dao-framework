@@ -186,14 +186,6 @@ public abstract class AbstractJpaRepository<T extends Entity<ID>, ID extends Ser
      * {@inheritDoc}
      */
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public T find(ID id) {
-        return entityManager.find(type, id);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public T findByPrimaryKey(PK pk) {
         return entityManager.find(type, pk);
     }

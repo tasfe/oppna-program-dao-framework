@@ -270,7 +270,7 @@ public abstract class AbstractJpaRepository<T extends Entity<ID>, ID extends Ser
      */
     @Transactional(propagation = Propagation.MANDATORY)
     public T store(T entity) {
-        if (entity.getId() == null || find(entity.getId()) == null) {
+        if (find(entity.getId()) == null) {
             entityManager.persist(entity);
             return entity;
         } else {

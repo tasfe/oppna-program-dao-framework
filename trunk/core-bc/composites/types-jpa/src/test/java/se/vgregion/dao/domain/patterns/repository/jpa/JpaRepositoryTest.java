@@ -31,8 +31,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 
 /**
- * This action do that and that, if it has something special it is.
- * 
  * @author <a href="mailto:david.rosell@redpill-linpro.com">David Rosell</a>
  * @author Anders Asplund - Callista Enterprise
  */

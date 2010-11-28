@@ -42,7 +42,8 @@ public abstract class DefaultJpaRepository<T extends Entity<Long>> extends Abstr
      * {@inheritDoc}
      */
     public T find(Long id) {
-        return findByPrimaryKey(id);
+        T findByPrimaryKey = findByPrimaryKey(id);
+        return findByPrimaryKey;
     }
 
     /**

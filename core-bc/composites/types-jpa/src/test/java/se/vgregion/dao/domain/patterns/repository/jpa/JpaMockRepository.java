@@ -21,8 +21,6 @@ package se.vgregion.dao.domain.patterns.repository.jpa;
 import se.vgregion.dao.domain.patterns.repository.db.jpa.DefaultJpaRepository;
 
 /**
- * This action do that and that, if it has something special it is.
- * 
  * @author <a href="mailto:david.rosell@redpill-linpro.com">David Rosell</a>
  */
 public class JpaMockRepository extends DefaultJpaRepository<MockEntity> implements MockEntityRepository {

@@ -26,9 +26,9 @@ public abstract class AbstractEntity<ID> implements Entity<ID> {
      * {@inheritDoc}
      */
     public final boolean sameAs(final Entity<ID> other) {
-        return other != null 
-            && (other.getClass().isAssignableFrom(this.getClass()) || this.getClass().isAssignableFrom(other.getClass())) 
-            && this.getId().equals(other.getId());
+        return other != null
+                && (other.getClass().isAssignableFrom(this.getClass()) || this.getClass().isAssignableFrom(
+                        other.getClass())) && this.getId().equals(other.getId());
     }
 
     /**
@@ -57,8 +57,7 @@ public abstract class AbstractEntity<ID> implements Entity<ID> {
             return false;
         }
 
-        @SuppressWarnings("unchecked")
-        Entity otherType = (Entity) other;
+        Entity<?> otherType = (Entity<?>) other;
 
         if (getId() == null || otherType.getId() == null) {
             return false;

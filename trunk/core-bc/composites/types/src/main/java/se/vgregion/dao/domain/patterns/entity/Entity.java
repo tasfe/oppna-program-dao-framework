@@ -4,18 +4,19 @@
  */
 package se.vgregion.dao.domain.patterns.entity;
 
-
 /**
- * <strong>From wikipedia</strong>: An object that is not defined by its attributes, but rather by a thread of
- * continuity and its identity.
+ * 
+ * Entity - <strong>from wikipedia</strong>: An object that is not defined by its attributes, but rather by a
+ * thread of continuity and its identity.
  * <p/>
  * <strong>Example</strong>: Most airlines distinguish each seat uniquely on every flight. Each seat is an entity
  * in this context. However, Southwest Airlines (or EasyJet/RyanAir for you Europeans...) does not distinguish
  * between every seat; all seats are the same. In this context, a seat is actually a
  * {@link se.vgregion.dao.domain.patterns.valueobject.ValueObject value object}.
  * 
- * @param <T>
- *            The Entity Type
+ * An Entity is not supposed to live without an ID, it is therefore strongly recommended to <strong>always provide
+ * an id</strong> when creating a new Entity instance. This could preferably be done by implementing a constructor
+ * taking an ID.
  * 
  * @param <ID>
  *            The ID of the Entity

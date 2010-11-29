@@ -1,6 +1,7 @@
-se.vgregion.core.domain.patterns.entity
-se.vgregion.core.domain.patterns.repository
-se.vgregion.core.domain.patterns.valueobject
-se.vgregion.core.infrastructure.persistence
-se.vgregion.core.infrastructure.persistence.jpa
-se.vgregion.persistance
+se.vgregion.dao.domain.patterns.entity
+se.vgregion.dao.domain.patterns.repository
+se.vgregion.dao.domain.patterns.repository.db
+se.vgregion.dao.domain.patterns.repository.db.jpa
+se.vgregion.dao.domain.patterns.repository.inmemory
+se.vgregion.dao.domain.patterns.valueobject
+se.vgregion.dao.infrastructure.persistence.jpa

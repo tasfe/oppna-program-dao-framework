@@ -13,7 +13,7 @@
   <groupId>se.vgregion.daoframework</groupId>
   <artifactId>dao-framework-system</artifactId>
   <packaging>pom</packaging>
-  <version>3.4</version>
+  <version>3.5-SNAPSHOT</version>
   <name>${project.artifactId}</name>
 
   <modules>
@@ -47,8 +47,8 @@
   </build -->
 
   <scm>
-    <developerConnection>scm:svn:https://oppna-program-dao-framework.googlecode.com/svn/tags/dao-framework-system-3.4</developerConnection>
-    <url>http://jpa-framework.googlecode.com/svn/tags/dao-framework-system-3.4</url>
+    <developerConnection>scm:svn:https://oppna-program-dao-framework.googlecode.com/svn/trunk</developerConnection>
+    <url>http://jpa-framework.googlecode.com/svn/trunk</url>
   </scm>
 
 <!-- Used to deploy maven site, but not working properly for the moment.

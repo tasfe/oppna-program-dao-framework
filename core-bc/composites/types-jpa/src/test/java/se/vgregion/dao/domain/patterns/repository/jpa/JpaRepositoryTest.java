@@ -51,6 +51,18 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
     }
 
     @Test
+    // Tests issue #7
+    public void shouldCreateInstanceOfGrandChildOfAbstractJpaRepository() throws Exception {
+        CarRepo.RaceCarRepo repo = null;
+        try {
+            repo = new CarRepo().new RaceCarRepo();
+        } catch (ClassCastException e) {
+            fail(e.getMessage());
+        }
+        assertEquals(repo.getType(), Car.class);
+    }
+
+    @Test
     public void find() {
         MockEntity entity = testRepository.find(1L);
 

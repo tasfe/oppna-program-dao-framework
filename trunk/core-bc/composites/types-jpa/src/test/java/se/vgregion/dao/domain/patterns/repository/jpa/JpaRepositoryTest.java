@@ -30,6 +30,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 
+import se.vgregion.dao.domain.patterns.entity.Car;
+
 /**
  * @author <a href="mailto:david.rosell@redpill-linpro.com">David Rosell</a>
  * @author Anders Asplund - Callista Enterprise
@@ -48,6 +50,18 @@ public class JpaRepositoryTest extends AbstractTransactionalJUnit4SpringContextT
     @After
     public void tearDown() throws Exception {
         executeSqlScript("classpath:dbsetup/drop-test-data.sql", false);
+    }
+
+    @Test
+    // Tests issue #7
+    public void shouldCreateInstanceOfGrandChildOfAbstractJpaRepository() throws Exception {
+        CarRepo.RaceCarRepo repo = null;
+        try {
+            repo = new CarRepo().new RaceCarRepo();
+        } catch (ClassCastException e) {
+            fail(e.getMessage());
+        }
+        assertEquals(repo.getType(), Car.class);
     }
 
     @Test

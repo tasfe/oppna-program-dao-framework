@@ -19,6 +19,7 @@
 package se.vgregion.dao.domain.patterns.repository.db.jpa;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -45,6 +46,14 @@ public interface JpaRepository<T extends Entity<ID>, ID extends Serializable, PK
      * that have not been flushed to the storage will not be persisted.
      */
     void clear();
+
+    Collection<T> findByQuery(String qlString);
+
+    Collection<T> findByQuery(String qlString, Object[] args);
+
+    Collection<T> findByQuery(String qlString, Map<String, ? extends Object> args);
+
+    public T findByAttribute(String attributeName, Object value);
 
     /**
      * Find instances of <code>T</code> that match the criteria defined by query <code>queryName</code>.

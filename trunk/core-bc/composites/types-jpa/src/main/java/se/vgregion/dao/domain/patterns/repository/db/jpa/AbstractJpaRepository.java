@@ -26,6 +26,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -201,6 +202,44 @@ public abstract class AbstractJpaRepository<T extends Entity<ID>, ID extends Ser
      */
     @SuppressWarnings("unchecked")
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public Collection<T> findByQuery(String qlString) {
+        Query query = entityManager.createQuery(qlString);
+        return query.getResultList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("unchecked")
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public Collection<T> findByQuery(String qlString, Map<String, ? extends Object> args) {
+        Query query = entityManager.createQuery(qlString);
+        for (Map.Entry<String, ? extends Object> parameter : args.entrySet()) {
+            query.setParameter(parameter.getKey(), parameter.getValue());
+        }
+        return query.getResultList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("unchecked")
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public List<T> findByQuery(String qlString, Object[] args) {
+        Query query = entityManager.createQuery(qlString);
+        if (args != null) {
+            for (int i = 0; i < args.length; i++) {
+                query.setParameter(i + 1, args[i]);
+            }
+        }
+        return query.getResultList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("unchecked")
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<T> findByNamedQuery(String queryName, Map<String, ? extends Object> args) {
         Query namedQuery = entityManager.createNamedQuery(queryName);
         for (Map.Entry<String, ? extends Object> parameter : args.entrySet()) {
@@ -266,6 +305,22 @@ public abstract class AbstractJpaRepository<T extends Entity<ID>, ID extends Ser
             T result = (T) namedQuery.getSingleResult();
             return result;
         } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @SuppressWarnings("unchecked")
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public T findByAttribute(String attributeName, Object value) {
+        try {
+            return (T) entityManager
+                    .createQuery(
+                            "select e from " + type.getSimpleName() + " e where e." + attributeName + " = :attr")
+                    .setParameter("attr", value).getSingleResult();
+        } catch (NoResultException e) {
             return null;
         }
     }

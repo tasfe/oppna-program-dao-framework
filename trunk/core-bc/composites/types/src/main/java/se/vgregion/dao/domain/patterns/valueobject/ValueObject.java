@@ -3,7 +3,6 @@
  * under the MIT license
  */package se.vgregion.dao.domain.patterns.valueobject;
 
-
 /**
  * <strong>From Wikipedia</strong>: A Value Object is an object that contains attributes but has no conceptual
  * identity. They should be treated as immutable.
@@ -18,7 +17,7 @@
  * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
-public interface ValueObject<T> {
+public interface ValueObject {
 
     /**
      * Value objects compare by the values of their attributes, they don't have an identity.
@@ -27,6 +26,6 @@ public interface ValueObject<T> {
      *            The other value object.
      * @return <code>true</code> if the given value object's and this value object's attributes are the same.
      */
-    boolean sameValueAs(T other);
+    boolean sameValueAs(ValueObject other);
 
 }

@@ -23,6 +23,6 @@ import se.vgregion.dao.domain.patterns.repository.db.jpa.DefaultJpaRepository;
 /**
  * @author <a href="mailto:david.rosell@redpill-linpro.com">David Rosell</a>
  */
-public class JpaMockRepository extends DefaultJpaRepository<MockEntity> implements MockEntityRepository {
+public class JpaMockRepository extends DefaultJpaRepository<MockEntity, Long> implements MockEntityRepository {
 
 }

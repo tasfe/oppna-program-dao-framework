@@ -18,18 +18,22 @@
  */
 package se.vgregion.dao.domain.patterns.repository.db.jpa;
 
+import java.io.Serializable;
+
 import se.vgregion.dao.domain.patterns.entity.Entity;
 
 /**
  * A convenient implementation of JpaRepository where Entity ID and database primary key(PK) are equal and of type
- * Long. Use this when PK=ID=Long to get find(ID) and remove(ID) implemented.
+ * Long. Use this when PK=ID to get find(ID) and remove(ID) implemented.
  * 
  * @param T
  *            the Entity Type
+ * @param ID  the Identity type of the Entity
  * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
-public abstract class DefaultJpaRepository<T extends Entity<Long>> extends AbstractJpaRepository<T, Long, Long> {
+public class DefaultJpaRepository<T extends Entity<ID>, ID extends Serializable> extends
+        AbstractJpaRepository<T, ID, ID> {
 
     public DefaultJpaRepository() {
     }
@@ -41,7 +45,7 @@ public abstract class DefaultJpaRepository<T extends Entity<Long>> extends Abstr
     /**
      * {@inheritDoc}
      */
-    public T find(Long id) {
+    public T find(ID id) {
         return findByPrimaryKey(id);
     }
 
@@ -49,7 +53,7 @@ public abstract class DefaultJpaRepository<T extends Entity<Long>> extends Abstr
      * {@inheritDoc}
      */
     @Override
-    public void remove(Long id) {
+    public void remove(ID id) {
         removeByPrimaryKey(id);
     }
 }

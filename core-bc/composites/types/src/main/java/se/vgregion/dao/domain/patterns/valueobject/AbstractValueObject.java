@@ -19,12 +19,9 @@ import org.apache.commons.lang.builder.ToStringStyle;
  * flexibility in selecting significant fields for comparision, or you may need to be able to calculate equals
  * millions of times every second, in which case reflection might not be fast enough.
  * 
- * @param <T>
- *            the Type of the Value Object
- * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
-public abstract class AbstractValueObject<T extends ValueObject<T>> implements ValueObject<T> {
+public abstract class AbstractValueObject implements ValueObject {
 
     @SuppressWarnings("unused")
     private final Long _primaryKey = null;
@@ -36,7 +33,7 @@ public abstract class AbstractValueObject<T extends ValueObject<T>> implements V
      *            The other value object.
      * @return True if all non-transient fields are equal.
      */
-    public final boolean sameValueAs(final T other) {
+    public final boolean sameValueAs(final ValueObject other) {
         return other != null && EqualsBuilder.reflectionEquals(this, other, EXCLUDED_FIELDS);
     }
 
@@ -81,7 +78,7 @@ public abstract class AbstractValueObject<T extends ValueObject<T>> implements V
             return false;
         }
 
-        return sameValueAs((T) other);
+        return sameValueAs((ValueObject) other);
     }
 
     @Override

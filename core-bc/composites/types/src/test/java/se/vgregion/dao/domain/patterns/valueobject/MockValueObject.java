@@ -20,15 +20,13 @@ package se.vgregion.dao.domain.patterns.valueobject;
 
 import java.io.Serializable;
 
-import se.vgregion.dao.domain.patterns.valueobject.AbstractValueObject;
-
 /**
  * This action do that and that, if it has something special it is.
  * 
  * @author Anders Asplund - <a href="http://www.callistaenterprise.se">Callista Enterprise</a>
  */
 
-public class MockValueObject extends AbstractValueObject<MockValueObject> implements Serializable {
+public class MockValueObject extends AbstractValueObject implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

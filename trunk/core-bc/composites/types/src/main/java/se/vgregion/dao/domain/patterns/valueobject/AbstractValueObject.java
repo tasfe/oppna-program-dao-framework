@@ -23,10 +23,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
  */
 public abstract class AbstractValueObject implements ValueObject {
 
-    @SuppressWarnings("unused")
-    private final Long _primaryKey = null;
     private transient int _cachedHashCode = 0;
-    private static final String[] EXCLUDED_FIELDS = { "_primaryKey", "_cachedHashCode", "serialVersionUID" };
 
     /**
      * @param other
@@ -34,14 +31,14 @@ public abstract class AbstractValueObject implements ValueObject {
      * @return True if all non-transient fields are equal.
      */
     public final boolean sameValueAs(final ValueObject other) {
-        return other != null && EqualsBuilder.reflectionEquals(this, other, EXCLUDED_FIELDS);
+        return other != null && EqualsBuilder.reflectionEquals(this, other);
     }
 
     /**
      * @return Hash code built from all non-transient fields.
      */
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         // Using a local variable to ensure that we only do a single read
         // of the _cachedHashCode field, to avoid race conditions.
         // It doesn't matter if several threads compute the hash code and overwrite
@@ -83,7 +80,6 @@ public abstract class AbstractValueObject implements ValueObject {
 
     @Override
     public String toString() {
-        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).setExcludeFieldNames(
-                EXCLUDED_FIELDS).toString();
+        return new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).toString();
     }
 }

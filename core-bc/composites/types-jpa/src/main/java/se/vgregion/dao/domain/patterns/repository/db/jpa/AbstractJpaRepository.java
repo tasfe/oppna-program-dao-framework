@@ -57,7 +57,7 @@ import se.vgregion.dao.domain.patterns.repository.db.DatabaseRepository;
  * 
  */
 public abstract class AbstractJpaRepository<T extends Entity<ID>, ID extends Serializable, PK extends Serializable>
-        implements JpaRepository<T, ID, PK> {
+implements JpaRepository<T, ID, PK> {
 
     /**
      * Entity manager ref.
@@ -314,12 +314,12 @@ public abstract class AbstractJpaRepository<T extends Entity<ID>, ID extends Ser
      */
     @SuppressWarnings("unchecked")
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public T findByAttribute(String attributeName, Object value) {
+    public Collection<T> findByAttribute(String attributeName, Object value) {
         try {
-            return (T) entityManager
-                    .createQuery(
-                            "select e from " + type.getSimpleName() + " e where e." + attributeName + " = :attr")
-                    .setParameter("attr", value).getSingleResult();
+            return entityManager
+            .createQuery(
+                    "select e from " + type.getSimpleName() + " e where e." + attributeName + " = :attr")
+                    .setParameter("attr", value).getResultList();
         } catch (NoResultException e) {
             return null;
         }
